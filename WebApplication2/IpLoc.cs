@@ -16,7 +16,7 @@ namespace WebApplication2
 			context.Response.ContentType = "text/html;charset=utf-8";
             string path = context.Request.Path.Value.ToString();
             var ipAdressClientRequest = context.Request.Query["ip"];
-            var ipAdressClientRequestFrom = "none";//comment
+            var ipAdressClientRequestFrom = "none";//comment /v2
             if (path == "/location/")
             {
 
