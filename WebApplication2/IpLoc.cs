@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-
+using Npgsql;
 namespace WebApplication2
 {
     public class IpLoc
@@ -15,10 +12,11 @@ namespace WebApplication2
         }
         public async Task InvokeAsync(HttpContext context)
         {
-            context.Response.ContentType = "text/html;charset=utf-8";
+			
+			context.Response.ContentType = "text/html;charset=utf-8";
             string path = context.Request.Path.Value.ToString();
             var ipAdressClientRequest = context.Request.Query["ip"];
-            var ipAdressClientRequestFrom = "Russia";
+            var ipAdressClientRequestFrom = "none";
             if (path == "/location/")
             {
 
@@ -28,7 +26,7 @@ namespace WebApplication2
             else
             {
 
-                await context.Response.WriteAsync("<h3>Обращайтесь по пути /location/?ip=DDD.DDD.DDD.DDD чтоб проверить местоположение данного IP </h3>");
+                await context.Response.WriteAsync("<h3>Обращайтесь по пути /location/?ip=127.0.0.1 чтоб проверить местоположение данного IP </h3>");
 
             }
         }
